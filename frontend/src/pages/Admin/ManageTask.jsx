@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react'
 import Dashboadlayout from '../../components/layout/Dashboadlayout'
 import { useState } from 'react'
-import { useNavigate ,useLocation} from 'react-router-dom'
+import { useNavigate} from 'react-router-dom'
 import axiosInstance from '../../utils/axiosinstance'
 import { API_URLS } from '../../utils/apipaths'
 import { LuFileSpreadsheet } from 'react-icons/lu'
 import TaskStatusTabs from '../../components/TaskStatusTabs'
 import TaskCard from '../../components/Cards/TaskCard'
-import moment from 'moment'
 
 const ManageTask = () => {
   const [alltasks, setalltasks] =useState([])
@@ -87,7 +86,7 @@ const ManageTask = () => {
         </div>
 
         <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-4'>
-          {alltasks?.map((items,index)=>(
+          {alltasks?.map((items)=>(
             <TaskCard
             key={items._id}
             title={items.title}
