@@ -10,12 +10,12 @@ const gettask = async (req, res) => {
     if (req.user.role == "admin") {
       tasks = await Task.find(filter).populate(
         "assignedTo",
-        "name email profileImageUrl role"
+        "name email profileImageUrl "
       );
     } else {
       tasks = await Task.find({ ...filter, assignedTo: req.user._id }).populate(
         "assignedTo",
-        "name email profileImageUrl role"
+        "name email profileImageUrl "
       );
     }
 
@@ -29,7 +29,7 @@ const gettask = async (req, res) => {
     );
 
     const alltasks = await Task.countDocuments(
-      req.user.role = "admin" ? {} : { assignedTo: req.user._id },
+      req.user.role === "admin" ? {} : { assignedTo: req.user._id },
     );
 
     const pendingtasks = await Task.countDocuments({

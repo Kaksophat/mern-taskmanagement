@@ -1,22 +1,24 @@
 import React, { useEffect } from 'react'
 import Dashboadlayout from '../../components/layout/Dashboadlayout'
 import { useState } from 'react'
-import { useNavigate ,useLocation} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import axiosInstance from '../../utils/axiosinstance'
 import { API_URLS } from '../../utils/apipaths'
 import { LuFileSpreadsheet } from 'react-icons/lu'
 import TaskStatusTabs from '../../components/TaskStatusTabs'
 import TaskCard from '../../components/Cards/TaskCard'
-import moment from 'moment'
 
 const Mytask = () => {
   const [alltasks, setalltasks] =useState([])
+  
   
   
  
 
   const [tabs, settabs] =useState([])
   const [filterstatus, setfilterstatus] = useState("All")
+  console.log("tabs",tabs);
+  
 
   const navigate = useNavigate()
 
@@ -37,7 +39,6 @@ const Mytask = () => {
         {lab:"In Progress", count: statusSummary.inProgresstasks || 0},
         {lab:"Completed", count: statusSummary.completedtasks || 0},
       ]
-      console.log(repones.data);
       
       settabs(statusArray)
       
