@@ -57,6 +57,8 @@ const ViewTaskDetails = () => {
       }
     } catch (error) {
       todoCheckList[index].completed = !todoCheckList[index].completed
+      console.log(error);
+      
     }
 
   }
