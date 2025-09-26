@@ -8,10 +8,7 @@ const reportRouter = require('./routes/reportroute.js');
 const cors = require('cors');
 const path = require('path');
 const app = express();
-app.use(cors({
-  origin: "https://mern-taskmanagement-frontend.onrender.com",   
-  credentials: true                  
-}));
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
